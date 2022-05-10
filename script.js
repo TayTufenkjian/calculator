@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Make sure textValue exists, in case the user hits an operator immediately after hitting the equal button
                     if (textValue) {
                         b = textValue;
-                        solution = Math.round(operate(Number(a), operator, Number(b)) * 100000000) / 100000000;
+                        let solution = Math.round(operate(Number(a), operator, Number(b)) * 100000000) / 100000000;
                         display(solution);
                         // Update a and reset b for the next calculation
                         a = solution;
@@ -50,13 +50,20 @@ document.addEventListener('DOMContentLoaded', () => {
             // If button is the toggle sign button
             if (button.id === 'toggle-sign') {
                 let currentValue = document.querySelector('#display').textContent;
-                solution = (0 - Number(currentValue));
+                let solution = (0 - Number(currentValue));
                 a = solution;
                 textValue = b = '';
                 display(solution);
             }
 
             // If button is the percent button
+            if (button.id === 'percent') {
+                let currentValue = document.querySelector('#display').textContent;
+                let solution = currentValue / 100;
+                a = solution;
+                textValue = b = '';
+                display(solution);
+            }
         })
     })
 })
