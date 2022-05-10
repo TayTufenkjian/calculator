@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Make sure textValue exists, in case the user hits an operator immediately after hitting the equal button
                     if (textValue) {
                         b = textValue;
-                        solution = operate(Number(a), operator, Number(b));
+                        solution = Math.round(operate(Number(a), operator, Number(b)) * 100000000) / 100000000;
                         display(solution);
                         // Update a and reset b for the next calculation
                         a = solution;
