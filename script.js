@@ -14,7 +14,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // If button is a digit, add the digit to the display value
             if (button.classList.contains('digit')) {
-                textValue += button.textContent;
+                // Make sure the user can only use one decimal point per number
+                if (button.textContent === '.' && textValue.includes('.')) {
+                    textValue = textValue;
+                } else {
+                    textValue += button.textContent;
+                }
                 display(textValue);
             }
 
