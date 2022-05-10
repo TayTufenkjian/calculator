@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize values and operator
-    let a = b = textValue = '';
-    let operator;
+    let a = b = textValue = operator = '';
 
     // Listen for a click on each button
     const buttons = document.querySelectorAll('button');
@@ -9,8 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', () => {
             // If the button is AC, clear all values
             if (button.id === 'clear') {
-                a = b = textValue = '';
-                operator = null;
+                a = b = textValue = operator = '';
                 display('0');
             }
 
@@ -52,32 +50,16 @@ function display(value) {
     display.textContent = value;
 }
 
-function add(a, b) {
-    return a + b;
-}
-
-function subtract(a, b) {
-    return a - b;
-}
-
-function multiply(a, b) {
-    return a * b;
-}
-
-function divide(a, b) {
-    return a / b;
-}
-
 function operate(a, operator, b) {
     switch(operator) {
         case '+':
-            return add(a, b);
+            return a + b;
         case '-':
-            return subtract(a, b);
+            return a - b;
         case 'x':
-            return multiply(a, b);
+            return a * b;
         case '/':
-            return divide(a, b);
+            return a / b;
         default:
             console.log('Something went wrong');
             return 'error';
