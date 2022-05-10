@@ -26,12 +26,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 // OR if the equal sign is clicked and the operator exists and the text value is not empty
                 // store the display value in b and perform the operation
                 if (a && button.textContent !== '=' || (button.textContent ==='=' && operator && textValue)) {
-                    b = textValue;
-                    solution = operate(Number(a), operator, Number(b));
-                    display(solution);
-                     // Update a and reset b for the next calculation
-                    a = solution;
-                    textValue = b = '';
+                    // Make sure textValue exists, in case the user hits an operator immediately after hitting the equal button
+                    if (textValue) {
+                        b = textValue;
+                        solution = operate(Number(a), operator, Number(b));
+                        display(solution);
+                        // Update a and reset b for the next calculation
+                        a = solution;
+                        textValue = b = '';
+                    }
                 } else {
                     // Otherwise, store the display value in a and reset it
                     a = textValue;
