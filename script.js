@@ -28,13 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 textValue = '';
             }
 
-            // If the equal sign is clicked AND the operator exists, store the current display value and perform the operation
-            if (button.id ==='equals' && operator) {
+            // If the operator exists, the text value is not empty, and the equal sign is clicked 
+            // store the current display value and perform the operation
+            if (operator && textValue && button.id ==='equals' && textValue != '') {
                 b = textValue;
-                let solution = operate(Number(a), operator, Number(b));
+                solution = operate(Number(a), operator, Number(b));
                 display(solution);
 
-                // Update a and reset b for the next calculation
+                // For the next calculation, update a, reset b
                 textValue = a = solution;
                 b = '';
             }
