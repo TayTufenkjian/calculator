@@ -1,3 +1,22 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // Listen for a click on each button
+    // Display value when a digit button is clicked
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            if (button.classList.contains('digit')) {
+                value = button.textContent;
+                display(value);
+            }
+        })
+    })
+})
+
+function display(value) {
+    const display = document.querySelector('#display');
+    display.textContent = value;
+}
+
 function add(a, b) {
     return a + b;
 }
