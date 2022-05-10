@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize calculation values and operator
-    let a, b, operator;
+    // Initialize values and operator
+    let a = b = textValue = '';
+    let operator;
 
     // Listen for a click on each button
     const buttons = document.querySelectorAll('button');
@@ -8,38 +9,34 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', () => {
             // If the button is AC, clear all values
             if (button.id === 'clear') {
-                a = 0;
-                b = 0;
+                a = b = textValue = '';
                 operator = null;
-                display(a);
+                display('0');
             }
 
-            // If button is a digit, display and store its value
+            // If button is a digit, add the digit to the display value
             if (button.classList.contains('digit')) {
-                value = parseInt(button.textContent);
-                display(value);
-
-                // If a already exists, store the value in b; otherwise store the value in a
-                if (a) {
-                    b = value;
-                } else {
-                    a = value;
-                }
+                textValue += button.textContent;
+                display(textValue);
             }
 
-            // If button is an operator, store the operator
+            // If button is an operator, store the operator and the current display value
             if (button.classList.contains('operator')) {
                 operator = button.textContent;
+                a = textValue;
+                // Reset the display value
+                textValue = '';
             }
 
-            // If the equal sign is clicked AND we have a and operator and b, perform the operation
-            if (button.id ==='equals' && a && b && operator) {
-                let solution = operate(a, operator, b);
+            // If the equal sign is clicked AND the operator exists, store the current display value and perform the operation
+            if (button.id ==='equals' && operator) {
+                b = textValue;
+                let solution = operate(Number(a), operator, Number(b));
                 display(solution);
 
-                // Update a and clear b for the next calculation
-                a = solution;
-                b = 0;
+                // Update a and reset b for the next calculation
+                textValue = a = solution;
+                b = '';
             }
         })
     })
