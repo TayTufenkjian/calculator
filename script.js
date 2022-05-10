@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 display(textValue);
             }
 
-            // If button is an operator
+            // If button is a standard operator
             if (button.classList.contains('operator')) {
                 // If a already has a value and the operator is NOT the equal sign
                 // OR if the equal sign is clicked and the operator exists and the text value is not empty
@@ -46,6 +46,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Update the operator
                 operator = button.textContent;
             }
+
+            // If button is the toggle sign button
+            if (button.id === 'toggle-sign') {
+                let currentValue = document.querySelector('#display').textContent;
+                solution = (0 - Number(currentValue));
+                a = solution;
+                textValue = b = '';
+                display(solution);
+            }
+
+            // If button is the percent button
         })
     })
 })
