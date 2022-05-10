@@ -1,0 +1,25 @@
+#calculator {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 100px 100px 100px 100px;
+    margin: 0 auto;
+    padding: 1rem;
+    width: fit-content;
+}
+
+#calculator button {
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+button#zero {
+    grid-column: 1 / span 2;
+} 
+
+#display {
+    border: 1px solid black;
+    font-size: 3rem;
+    grid-column: 1 / span 4;
+    padding: 1rem;
+    text-align: right;
+}
