@@ -20,24 +20,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 display(textValue);
             }
 
-            // If button is an operator, store the operator and the current display value
+            // If button is an operator
             if (button.classList.contains('operator')) {
+                // If a already has a value and the operator is NOT the equal sign
+                // OR if the equal sign is clicked and the operator exists and the text value is not empty
+                // store the display value in b and perform the operation
+                if (a && button.textContent !== '=' || (button.textContent ==='=' && operator && textValue)) {
+                    b = textValue;
+                    solution = operate(Number(a), operator, Number(b));
+                    display(solution);
+                     // Update a and reset b for the next calculation
+                    a = solution;
+                    textValue = b = '';
+                } else {
+                    // Otherwise, store the display value in a and reset it
+                    a = textValue;
+                    textValue = '';
+                }   
+                // Update the operator
                 operator = button.textContent;
-                a = textValue;
-                // Reset the display value
-                textValue = '';
-            }
-
-            // If the operator exists, the text value is not empty, and the equal sign OR another operator is clicked 
-            // store the current display value and perform the operation
-            if (operator && textValue && button.id ==='equals') {
-                b = textValue;
-                solution = operate(Number(a), operator, Number(b));
-                display(solution);
-
-                // For the next calculation, update a, reset b, update operator if there's a new one
-                textValue = a = solution;
-                b = '';
             }
         })
     })
