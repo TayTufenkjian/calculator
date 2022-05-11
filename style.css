@@ -5,10 +5,13 @@ body {
 }
 
 #calculator {
+    border: 1px solid #a5a5a5;
+    border-radius: 20px;
     display: grid;
     gap: 1rem;
-    grid-template-columns: 90px 90px 90px 90px;
-    width: fit-content;
+    grid-template-columns: 6rem 6rem 6rem 6rem;
+    padding: 3rem;
+    width: fit-content;   
 }
 
 button {
@@ -17,7 +20,7 @@ button {
     border-radius: 50%;
     cursor: pointer;
     font-size: 2rem;
-    height: 90px;
+    height: 6rem;
     padding: 1rem;
 }
 
@@ -26,7 +29,7 @@ button:hover {
 }
 
 button#zero {
-    border-radius: 90px;
+    border-radius: 6rem;
     grid-column: 1 / span 2;
 } 
 
@@ -39,16 +42,25 @@ button#zero {
 }
 
 #display {
+    border-bottom: 1px solid #a5a5a5;
     color: #e5e5e5;
     font-size: 8rem;
     grid-column: 1 / span 4;
+    margin-bottom: 1rem;
     padding: 1rem;
     text-align: right;
 }
+
 
 main {
     align-items: center;
     display: flex;
     height: 100vh;
     justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 8px;
+    }
 }
