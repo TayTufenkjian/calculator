@@ -25,7 +25,8 @@ button {
 }
 
 button:hover {
-    background-color: #d2d2d2;
+    background-color: #fff;
+    border: 2px solid rgb(223, 84, 212);
 }
 
 button#zero {
@@ -38,7 +39,8 @@ button#zero {
 }
 
 .operator:hover {
-    background-color: rgb(166, 63, 157);
+    background-color: rgb(243, 89, 230);
+    border: 2px solid #d2d0d0;
 }
 
 #display {
