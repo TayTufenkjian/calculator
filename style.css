@@ -9,7 +9,7 @@ body {
     border-radius: 20px;
     display: grid;
     gap: 1rem;
-    grid-template-columns: 6rem 6rem 6rem 6rem;
+    grid-template-columns: 5rem 5rem 5rem 5rem;
     padding: 4rem;
     width: fit-content;   
 }
@@ -19,8 +19,8 @@ button {
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 2rem;
-    height: 6rem;
+    font-size: 1.5rem;
+    height: 5rem;
     padding: 1rem;
 }
 
@@ -30,7 +30,7 @@ button:hover {
 }
 
 button#zero {
-    border-radius: 6rem;
+    border-radius: 5rem;
     grid-column: 1 / span 2;
 } 
 
@@ -48,11 +48,15 @@ button#zero {
     border-bottom: 1px solid #a5a5a5;
     color: #e5e5e5;
     display: flex;
-    font-size: 8rem;
+    font-size: 7rem;
     grid-column: 1 / span 4;
     height: 9rem;
     justify-content: right;
     margin-bottom: 1rem;
+}
+
+#display.small {
+    font-size: 4rem;
 }
 
 

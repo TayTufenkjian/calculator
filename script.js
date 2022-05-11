@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // If the button is AC, clear all values and reset font-size
             if (button.id === 'clear') {
                 a = b = textValue = operator = '';
-                displayDiv.style.fontSize = '8rem';
+                displayDiv.classList.remove('small');
                 display('0');
             }
 
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 // If textValue contains more than 6 chars, reduce the display font-size
                 if (textValue.length > 6) {
-                    displayDiv.style.fontSize = '5rem';
+                    displayDiv.classList.add('small');
                 }
                 display(textValue);
             }
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                         // If the solution contains more than 6 chars, reduce the display font-size
                         if (solution.toString().length > 6) {
-                            displayDiv.style.fontSize = '5rem';
+                            displayDiv.classList.add('small');
                         }
                         display(solution);
                         // Update a and reset b for the next calculation
